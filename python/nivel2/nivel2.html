@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>python</title>
-    <link rel="stylesheet" href="python.css">
+    <title>Nivel 2</title>
+    <script>
+        function completeNivel() {
+            // Marcar el nivel 2 como completado
+            localStorage.setItem('nivelCompletado', '2');
+        }
+
+        function goToNextLevel() {
+            completeNivel();
+            window.location.href = '../nivel3/nivel3.html'; // Redirige al nivel 3
+        }
+
+        function goBack() {
+            // Redirige a la página principal, pero no cambia el estado de los niveles
+            window.location.href = '../python.html'; 
+        }
+    </script>
 </head>
 <body>
+    <h1>Contenido del Nivel 2</h1>
     <div class="title">
-        <h1>nivel 2 sosorraaa</h1>
+        <h1>Nivel 2: ¡Sosorraaa!</h1>
+        <button class="btn" onclick="goToNextLevel()">CONTINUAR</button>
+        <button class="btn" onclick="goBack()">SALIR</button>
     </div>
 </body>
 </html>

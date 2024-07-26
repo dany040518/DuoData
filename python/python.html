@@ -3,14 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>python</title>
+    <title>Python</title>
     <link rel="stylesheet" href="python.css">
+    <script>
+
+        function checkProgress() {
+        let nivelCompletado = localStorage.getItem('nivelCompletado');
+    
+        if (nivelCompletado === null || nivelCompletado === '0') {
+            document.getElementById('btn-nivel-2').disabled = true;
+            document.getElementById('btn-nivel-3').disabled = true;
+        } else if (nivelCompletado === '1') {
+            document.getElementById('btn-nivel-2').disabled = false;
+            document.getElementById('btn-nivel-3').disabled = true;
+        } else if (nivelCompletado === '2') {
+            document.getElementById('btn-nivel-2').disabled = false;
+            document.getElementById('btn-nivel-3').disabled = false;
+        } else if (nivelCompletado === '3') {
+            document.getElementById('btn-nivel-2').disabled = false;
+            document.getElementById('btn-nivel-3').disabled = false;
+        }
+    }
+
+        window.onload = function() {
+            checkProgress();
+        }
+    </script>
 </head>
 <body>
     <div class="title">
-        <button class="btn" onclick="location.href='nivel1/nivel1.html'">1</button>
-        <button class="btn" onclick="location.href='nivel2/niveL2.html'">2</button>
-        <button class="btn" onclick="location.href='nivel3/niveL3.html'">3</button>
+        <button id="btn-nivel-1" class="btn" onclick="location.href='nivel1/nivel1.html'">1</button>
+        <button id="btn-nivel-2" class="btn" onclick="location.href='nivel2/nivel2.html'" disabled>2</button>
+        <button id="btn-nivel-3" class="btn" onclick="location.href='nivel3/nivel3.html'" disabled>3</button>
     </div>
 </body>
 </html>
